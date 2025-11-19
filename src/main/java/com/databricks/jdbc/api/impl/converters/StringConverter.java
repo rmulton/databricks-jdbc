@@ -45,7 +45,7 @@ public class StringConverter implements ObjectConverter {
     if (object != null) {
       return object.toString();
     }
-    throw new DatabricksValidationException("Invalid conversion to String");
+    throw new DatabricksValidationException(String.format("Invalid conversion to String: %s", object.getClass().getName()));
   }
 
   private String convertSqlArrayToString(java.sql.Array array) throws DatabricksSQLException {
